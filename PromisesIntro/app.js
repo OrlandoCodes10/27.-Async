@@ -83,7 +83,10 @@ fakeRequestPromise('yelp.com/api/coffee/page1')
         console.log("IT WORKED!!!!!! (page2)")
         return fakeRequestPromise('yelp.com/api/coffee/page3')
     })
-    .then (() => {
+    .then(() => {
+        console.log("IT WORKED!!!!!! (page3)")
+    })
+    .catch (() => {
         console.log("OH NO, A REQUEST FAILED!!")
     })
 
