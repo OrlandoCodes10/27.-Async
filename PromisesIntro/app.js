@@ -24,7 +24,7 @@ const fakeRequestPromise = (url) => {
 }
 
 //The code above is a fake request
-
+//my practice below Mar 2, '23
 // fakeRequestCallback('books.com/page1', 
 //     function (response) {
 //     console.log("IT WORKED!!!")
@@ -49,26 +49,42 @@ const fakeRequestPromise = (url) => {
 //     console.log("ERROR!!!", err)
 // })
 
+//my practice below Mar 2, '23
+// fakeRequestPromise('yelp.com/api/coffee/page1')
+//     .then(() => {
+//         console.log("IT WORKED!!! (page1)")
+//         fakeRequestPromise('yelp.com/api/coffee/page2')
+//             .then(() => {
+//                 console.log("IT WORKED!!! (page2)")
+//                 fakeRequestPromise('yelp.com/api/coffee/page3')
+//                     .then(() => {
+//                         console.log("IT WORKED!!!!!! (page3)")
+//                     })
+//                     .catch(() => {
+//                         console.log("OH NO, ERROR!!! (page3)")
+//                     })
+//             })
+//             .catch(() => {
+//                 console.log("OH NO, ERROR!!! (page2)")
+//             })
+//     })
+//     .catch(() => {
+//         console.log("OH NO, ERROR!!! (page1)")
+//     })
+
+//Promise magic practice Mar 3, '23
+
 fakeRequestPromise('yelp.com/api/coffee/page1')
     .then(() => {
-        console.log("IT WORKED!!! (page1)")
-        fakeRequestPromise('yelp.com/api/coffee/page2')
-            .then(() => {
-                console.log("IT WORKED!!! (page2)")
-                fakeRequestPromise('yelp.com/api/coffee/page3')
-                    .then(() => {
-                        console.log("IT WORKED!!!!!! (page3)")
-                    })
-                    .catch(() => {
-                        console.log("OH NO, ERROR!!! (page3)")
-                    })
-            })
-            .catch(() => {
-                console.log("OH NO, ERROR!!! (page2)")
-            })
+        console.log("IT WORKED!!!!!! (page1)")
+        return fakeRequestPromise('yelp.com/api/coffee/page2')
     })
-    .catch(() => {
-        console.log("OH NO, ERROR!!! (page1)")
+    .then (() => {
+        console.log("IT WORKED!!!!!! (page2)")
+        return fakeRequestPromise('yelp.com/api/coffee/page3')
+    })
+    .then (() => {
+        console.log("OH NO, A REQUEST FAILED!!")
     })
 
 // fakeRequestCallback('books.com/page1',
