@@ -115,7 +115,15 @@ fakeRequestPromise('yelp.com/api/coffee/page1')
 //     })
 
 
-
+fakeRequestPromise('yelp.com/api/coffee/page1')
+    .then(() => {
+        console.log("IT WORKED!!!!! (page 1)")
+        return fakeRequestPromise('yelp.com/api/coffee/page2')
+    })
+    .then(() => {
+        console.log("IT WORKED!!!!! (page 2)")
+        return fakeRequestPromise('yelp.com/api/coffee/page3')
+    })
 
 
 
