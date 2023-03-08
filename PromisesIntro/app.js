@@ -116,13 +116,23 @@ fakeRequestPromise('yelp.com/api/coffee/page1')
 
 
 fakeRequestPromise('yelp.com/api/coffee/page1')
-    .then(() => {
+    .then((data) => {
         console.log("IT WORKED!!!!! (page 1)")
+        console.log(data)
         return fakeRequestPromise('yelp.com/api/coffee/page2')
     })
-    .then(() => {
+    .then((data) => {
         console.log("IT WORKED!!!!! (page 2)")
+        console.log(data)
         return fakeRequestPromise('yelp.com/api/coffee/page3')
+    })
+    .then((data) => {
+        console.log("IT WORKED!!!!! (page 3)")
+        console.log(data)
+        return fakeRequestPromise('yelp.com/api/coffee/page4')
+    })
+    .catch ((data) => {
+        console.log("OH NO, A REQUEST FAILED!!!")
     })
 
 
